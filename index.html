@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="basketApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-controller="basketCtrl as ctrl">
+<div class="container">
+    <div class="block">
+        <h1>Добавить продукт</h1>
+        <div class="product">
+            <label>Продукт</label>
+            <input type="text" ng-model="ctrl.good.name">
+        </div>
+        <div class="price">
+            <label>Цена</label>
+            <input type="number" min="0" ng-model="ctrl.good.price">
+        </div>
+        <button class="btn-add" ng-click="ctrl.addGood(ctrl.good.name, ctrl.good.price)" ng-disabled="!ctrl.good.name || !ctrl.good.price">Добавить</button>
+    </div>
+    <div class="block" ng-if="!ctrl.listGoods.length">
+        <h1>Корзина пуста</h1>
+    </div>
+    <div class="block" ng-if="ctrl.listGoods.length">
+        <h1>Корзина</h1>
+        <table ng-if="ctrl.listGoods.length">
+            <tr>
+                <th>Продукт</th>
+                <th>Цена</th>
+                <th>Цена со скидкой</th>
+            </tr>
+            <tr ng-repeat="good in ctrl.listGoods">
+                <td>{{good.name}}</td>
+                <td>{{good.price}}</td>
+                <td>{{good.discount}}</td>
+            </tr>
+        </table>
+        <div>
+            <span>Применить скидку</span>
+            <input class="discount" type="number" min="0" ng-model="ctrl.discount">
+            <span>рублей</span>
+            <button ng-click="ctrl.addDiscount()" ng-disabled="!ctrl.discount || !ctrl.listGoods.length">Применить</button>
+        </div>
+    </div>
+</div>
+
+<script src="modules/basketApp.js"></script>
+<script src="controllers/basketCtrl.js"></script>
+</body>
+</html>

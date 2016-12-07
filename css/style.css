@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 280px;
+    padding: 20px;
+    background: #eeeeee;
+}
+
+.block:first-child {
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.block h1 {
+    margin-bottom: 10px;
+}
+
+.block .product,
+.block .price {
+    display: inline-block;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.block .product label,
+.block .price label {
+    float: left;
+    margin-bottom: 5px;
+}
+
+.block .product input,
+.block .price input {
+    float: left;
+    clear: both;
+    width: 120px;
+}
+
+.block .price input {
+    width: 50px;
+}
+
+.block .btn-add {
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+.block .discount {
+    width: 35px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    line-height: 29px;
+    text-align: left;
+}
